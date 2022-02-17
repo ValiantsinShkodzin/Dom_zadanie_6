@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDiv {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #myDiv > div {
+            width: 250px;
+            height: 250px;
+            /* background-color: brown; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        #myDiv > div,img {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="myDiv">
+        <!-- <div>
+            <img src="images/1.jpg" alt="">
+        </div>
+        <div>
+            <img src="images/2.jpg" alt="">
+        </div> -->
+    </div>
+
+    <script>
+        let blocks = +prompt("Введите количество блоков:");
+        let box = "";
+        let count = 1;
+        for (i=1; i<=blocks; i++){
+            if (count > 11) count = 1;
+            box +=`
+            <div style="background: ${colors()}">
+                <img src="images/${count++}.jpg" alt="">
+            </div>
+            `};
+
+        // ФУНКЦИЯ ВОЗВРАЩАЕТ РАНДОМНЫЙ ЦВЕТ
+        function colors(){
+            let symbols = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+            let color = "#";
+            for (j=0; j < 6; j++) 
+                color += symbols[Math.floor(Math.random()*symbols.length)];  // #1a56cf; 
+                
+                return color;
+        };
+        myDiv.innerHTML = box;
+    </script>
+</body>
+</html>
